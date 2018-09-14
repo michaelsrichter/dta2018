@@ -13,7 +13,7 @@ namespace DTA2018.Helpers
 
         public UserInfo()
         {
-     
+            LoadMe();
         }
 
         internal async Task LoadMe()
