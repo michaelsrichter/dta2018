@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using DTA2018.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using DTA2018.Models;
 
@@ -12,7 +13,13 @@ namespace DTA2018.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var ui = new UserInfo();
+            return View(ui);
+
+
+
+
+
         }
 
         public IActionResult About()
