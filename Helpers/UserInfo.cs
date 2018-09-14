@@ -26,6 +26,10 @@ namespace DTA2018.Helpers
                 meJson = await response.Content.ReadAsStringAsync();
                 GetProperties(meJson);
             }
+            else
+            {
+                Id = response.ReasonPhrase + "<br/>" + meUri.AbsoluteUri;
+            }
 
         }
 
