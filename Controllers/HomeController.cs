@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DTA2018.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using DTA2018.Models;
+using Microsoft.AspNetCore.Http.Extensions;
 
 namespace DTA2018.Controllers
 {
@@ -13,7 +14,7 @@ namespace DTA2018.Controllers
     {
         public IActionResult Index()
         {
-            var ui = new UserInfo();
+            var ui = new UserInfo(new Uri(Request.GetEncodedUrl()));
             return View(ui);
 
 

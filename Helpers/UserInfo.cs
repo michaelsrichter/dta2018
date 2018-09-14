@@ -11,15 +11,16 @@ namespace DTA2018.Helpers
         static HttpClient client = new HttpClient();
         private readonly string meJson;
 
-        public UserInfo()
+        public UserInfo(Uri uri)
         {
-            LoadMe();
+            LoadMe(uri);
         }
 
-        internal async Task LoadMe()
+        internal async Task LoadMe(Uri uri)
         {
             string meJson;
-            var response = await client.GetAsync("/.auth/me");
+            var meUri = new Uri(uri.Scheme + "://" + uri.Authority + "/.auth/me");
+            var response = await client.GetAsync(meUri);
             if (response.IsSuccessStatusCode)
             {
                 meJson = await response.Content.ReadAsStringAsync();
